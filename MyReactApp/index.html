@@ -13,8 +13,12 @@
     <div id="root"></div>
     <script type="text/babel">
       (() => {
+        const name = "react.js!";
         ReactDOM.render(
-          <p>Hello!</p>,
+          <div>
+            <p>Hello! {name.toUpperCase()}</p>
+            <p>Hello! {name.toLowerCase()}</p>
+          </div>,
           document.getElementById("root")
         );
       })();
