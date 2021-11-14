@@ -19,36 +19,55 @@
             this.state = {
               count: 0,
             };
-            this.countUp = this.countUp.bind(this)
+            this.countUp = this.countUp.bind(this);
           }
-          countUp(){
-            // this.state.count = this.state.counte + 1;
-            // this.setState({
-            //   count: this.state.count + 1
-            // });
-            this.setState(prevState => {
+          countUp() {
+            this.setState((prevState) => {
               return {
-                count:prevState.count + 1
+                count: prevState.count + 1,
               };
             });
           }
           render() {
             return (
-              <li style={{ backgroundColor: this.props.color }} onClick={this.countUp}>
+              <li
+                style={{ backgroundColor: this.props.color }}
+                onClick={this.countUp}
+              >
                 {this.state.count}
               </li>
             );
           }
         }
 
+        class App extends React.Component {
+          constructor(){
+            super();
+          }
+          render() {
+            return (
+              <div className="container">
+                <ul>
+                  <Counter color="tomato" />
+                  <Counter color="skyblue" />
+                  <Counter color="limegreen" />
+                </ul>
+                <div>TOTAL INVENTORY: 3</div>
+              </div>
+            );
+          }
+        }
+
         ReactDOM.render(
-          <div className="container">
-            <ul>
-              <Counter color="tomato" />
-              <Counter color="skyblue" />
-              <Counter color="limegreen" />
-            </ul>
-          </div>,
+          // <div className="container">
+          //   <ul>
+          //     <Counter color="tomato" />
+          //     <Counter color="skyblue" />
+          //     <Counter color="limegreen" />
+          //   </ul>
+          //   <div>TOTAL INVENTORY: 3</div>
+          // </div>,
+          <App/>,
           document.getElementById("root")
         );
       })();
